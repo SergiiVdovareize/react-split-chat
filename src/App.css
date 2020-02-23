@@ -1,3 +1,7 @@
+body {
+  font-family: 'Segoe UI'
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -29,9 +33,6 @@ html, body {
 }
 
 .message-field-container {
-  /* position: absolute; */
-  /* bottom: 1em; */
-  /* border: 1px black solid; */
   text-align: left;
   width: 100%;
   flex: 0 1;
@@ -47,13 +48,8 @@ html, body {
   width: 50%;
 }
 
-.message-button {
-  /* background-color: cadetblue;
-  border: 1px red solid; */
-}
-
 .chat-title {
-  background-color: rgb(161, 185, 192);
+  background-color: rgb(191, 216, 162);
   padding: 5px;
   flex: 0 1 auto;
 }
@@ -72,18 +68,7 @@ html, body {
   padding: 1em;
 }
 
-.userName {
-  /* background-color: darkgrey; */
-  /* padding: 2px 5px;
-  border-radius: 2px;
-  margin-right: 3px; */
-}
-
-
-
 .message-row {
-  /* background: lightgray; */
-  /* height: 30px; */
   width: 100%;
   display: flex;
   align-items:flex-end;
@@ -91,16 +76,12 @@ html, body {
 }
 
 .message-row .userName {
-  /* background:lightblue; */
   width: 80px;
   text-align: right;
   padding-bottom: 5px;
 }
 
 .message-row .userName.itsme {
-  /* background-color: cornflowerblue; */
-  /* padding: 2px 5px; */
-  /* border-radius: 3px; */
   font-weight: bold;
 }
 
@@ -113,9 +94,6 @@ html, body {
 }
 
 .message-row .timestamp {
-  /* border-radius: 3px; */
-  /* background:rgb(230, 252, 255); */
-  /* padding: 5px 8px; */
   font-size: 14px;
   font-style: italic;
   padding-bottom: 5px;

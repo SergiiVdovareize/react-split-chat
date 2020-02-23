@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Wrapper from './components/Wrapper';
 
@@ -20,8 +20,17 @@ function App() {
       userName,
       message
     }
-    setHistory([...history, messageObject])
+    const updatedHistory = [...history, messageObject]
+    localStorage.setItem('history', JSON.stringify(updatedHistory))
+    setHistory(updatedHistory)
   }
+
+  useEffect(() => {
+    const history = localStorage.getItem('history')
+    if (history) {
+      setHistory(JSON.parse(history))
+    }
+  }, [])
 
   return (
     <div className="App">
