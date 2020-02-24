@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 body, input {
   font-family: 'Segoe UI';
   font-size: 16px;
@@ -6,6 +12,10 @@ body, input {
 input {
   padding: 0.6em;
   border: 1px gray solid;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 html, body {
@@ -28,6 +38,7 @@ html, body {
   display: flex;
   height: 100%;
   flex: 1 1 auto;
+  flex-wrap: wrap;
 }
 
 .chat-panel {
@@ -44,11 +55,13 @@ html, body {
   flex: 1;
   padding: 1em;
   margin: 1em;
-  
+  margin-bottom: 0;
+  flex: 0 0 31%;
+  height: calc(50vh - 80px);
 }
 
-.chat-wrapper:not(:first-child) {
-  margin-left: 0;
+.chat-wrapper:not(:last-child) {
+  margin-right: 0;
 }
 
 .chat-content {
@@ -92,6 +105,7 @@ html, body {
   text-align: left;
   flex: 1 1 auto;
   padding: 1em;
+  overflow: auto;
 }
 
 .message-row {
