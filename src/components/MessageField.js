@@ -13,7 +13,7 @@ function MessageField({ sendMessage }) {
     <div className='message-field-container'>
       <form action='#' onSubmit={sendMessageWrapper}>
         <input type='text' name='message-text' className='message-text' placeholder='say something'></input>
-        <input type='submit' className='message-button' value='Send'/>
+        <input type='submit' className='message-button btn' value='Send'/>
       </form>
     </div>
   );
