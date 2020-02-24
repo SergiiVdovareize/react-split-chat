@@ -64,6 +64,11 @@ html, body {
   margin-right: 0;
 }
 
+.chat-wrapper:nth-last-child(-n+3):first-child,
+.chat-wrapper:nth-last-child(-n+3):first-child ~ .chat-wrapper {
+  height: calc(100vh - 160px);
+}
+
 .chat-content {
   display: flex;
   flex-flow: column;
