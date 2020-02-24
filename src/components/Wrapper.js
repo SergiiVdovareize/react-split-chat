@@ -3,7 +3,7 @@ import MessageField from './MessageField';
 import Title from './Title';
 import Conversation from './Conversation';
 
-function Wrapper({ participant: {name, color}, history, sendMessage }) {
+function Wrapper({ participant: {name, color}, history, sendMessage, exitChat }) {
   const sendMessageWrapper = (message) => {
     sendMessage(name, message)
   }
@@ -11,7 +11,7 @@ function Wrapper({ participant: {name, color}, history, sendMessage }) {
   return (
     <div className="chat-wrapper">
       <div className="chat-content">
-        <Title userName={name} backColor={color}/>
+        <Title userName={name} backColor={color} exitChat={exitChat}/>
         <Conversation history={history} userName={name}/>
         <MessageField sendMessage={sendMessageWrapper}/>
       </div>

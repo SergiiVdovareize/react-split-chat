@@ -19,14 +19,14 @@ function MessageRow({ timestamp, userName, message, itsMe }) {
     return `${hours}:${minutes}:${seconds}`
   }
 
-  return (
+  return message.trim().length > 0 ?(
     <div className='message-row'>
       {messageAuthor()}
       <div className='userMessage'>{message}</div>
       <div className='timestamp'>{messageTime()}</div>
       
     </div>
-  );
+  ) : null;
 }
 
 export default MessageRow;

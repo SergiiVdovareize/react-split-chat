@@ -4,9 +4,11 @@ function MessageField({ sendMessage }) {
   const sendMessageWrapper = (ev) => {
     ev.preventDefault()
     
-    const message = ev.target.elements['message-text'].value
-    ev.target.elements['message-text'].value = ''
-    sendMessage(message)
+    const message = ev.target.elements['message-text'].value.trim()
+    if (message.length > 0) {
+      ev.target.elements['message-text'].value = ''
+      sendMessage(message)
+    }
   }
 
   return (

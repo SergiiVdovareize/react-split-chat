@@ -25,7 +25,7 @@ function App() {
     return { name, color }
   }
 
-  const removeUsedNames = () => {
+  const refreshUsedNames = () => {
     participants.forEach(({ name }) => {
       delete names[name]
     })
@@ -54,9 +54,17 @@ function App() {
     names = {...origNames}
   }
 
+  const exitChat = (user) => {
+    const updatedParticipants = [...participants]
+    const found = updatedParticipants.find(elem => elem.name === user)
+    updatedParticipants.splice(updatedParticipants.indexOf(found), 1)
+    setParticipants(updatedParticipants)
+    setGroupSize(groupSize - 1)
+  }
+
   useEffect(() => {
-    removeUsedNames()
-  }, [])
+    refreshUsedNames()
+  }, [participants])
 
   useEffect(() => {
     localStorage.setItem('history', JSON.stringify(history))
@@ -80,10 +88,17 @@ function App() {
   return (
     <div className="application">
       <div className="chat-group">
-        {participants.map((participant, index) => <Wrapper key={index} history={history} sendMessage={sendMessage} participant={participant}/>)}
+        {participants.map((participant, index) => <Wrapper key={index} 
+            history={history} 
+            sendMessage={sendMessage} 
+            participant={participant}
+            exitChat={exitChat}/>)}
       </div>
 
-      <ChatPanel clearHistory={clearHistory} addParticipant={addParticipant} refreshParticipants={refreshParticipants} noMoreChats={groupSize === MAX_GROUP_SIZE}/>
+      <ChatPanel clearHistory={clearHistory}
+          addParticipant={addParticipant}
+          refreshParticipants={refreshParticipants}
+          noMoreChats={groupSize === MAX_GROUP_SIZE}/>
     </div>
   );
 }
