@@ -56,8 +56,17 @@ function App() {
 
   const exitChat = (user) => {
     const updatedParticipants = [...participants]
+
     const found = updatedParticipants.find(elem => elem.name === user)
     updatedParticipants.splice(updatedParticipants.indexOf(found), 1)
+
+    const messageObject = {
+      timestamp: (new Date()).getTime(),
+      userName: null,
+      message: `${found.name} leaves the group`
+    }
+
+    setHistory([...history, messageObject])
     setParticipants(updatedParticipants)
     setGroupSize(groupSize - 1)
   }
@@ -78,11 +87,20 @@ function App() {
     localStorage.setItem('groupSize', groupSize)
 
     const users = [...participants]
+    const log = [...history]
     while (users.length < groupSize) {
-      users.push(getRandomName())
+      const newUserName = getRandomName()
+      const messageObject = {
+        timestamp: (new Date()).getTime(),
+        userName: null,
+        message: `${newUserName.name} enters the group`
+      }
+      log.push(messageObject)
+      users.push(newUserName)
     }
     
     setParticipants(users)
+    setHistory(log)
   }, [groupSize, participants.length])
 
   return (

@@ -2,12 +2,22 @@ import React from 'react';
 
 function MessageRow({ timestamp, userName, message, itsMe }) {
   const messageAuthor = () => {
-    const author = itsMe ? 'me' : userName
+    let author = itsMe ? 'me' : userName
     let classList = 'userName'
     if (itsMe) {
       classList += ' itsme'
     }
-    return (<div className={classList}>{author}:</div>)
+
+    author = author ? `${author}:` : ''
+    return (<div className={classList}>{author}</div>)
+  }
+
+  const messageText = () => {
+    let classList = 'userMessage'
+    if (!userName) {
+      classList += ' systemMessage'
+    }
+    return <div className={classList}>{message}</div>
   }
 
   const messageTime = () => {
@@ -22,7 +32,7 @@ function MessageRow({ timestamp, userName, message, itsMe }) {
   return message.trim().length > 0 ?(
     <div className='message-row'>
       {messageAuthor()}
-      <div className='userMessage'>{message}</div>
+      {messageText()}
       <div className='timestamp'>{messageTime()}</div>
       
     </div>

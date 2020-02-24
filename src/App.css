@@ -120,6 +120,11 @@ html, body {
   padding: 5px 8px;
 }
 
+.message-row .userMessage.systemMessage {
+  background-color: rgb(235, 235, 235);
+  font-style: italic;
+}
+
 .message-row .timestamp {
   font-size: 14px;
   font-style: italic;

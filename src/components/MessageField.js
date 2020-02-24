@@ -14,7 +14,7 @@ function MessageField({ sendMessage }) {
   return (
     <div className='message-field-container'>
       <form action='#' onSubmit={sendMessageWrapper}>
-        <input type='text' name='message-text' className='message-text' placeholder='say something'></input>
+        <input type='text' name='message-text' className='message-text' placeholder='say something' autoComplete='off'></input>
         <input type='submit' className='message-button btn' value='Send'/>
       </form>
     </div>
