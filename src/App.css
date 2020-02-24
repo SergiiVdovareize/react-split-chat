@@ -50,6 +50,10 @@ html, body {
   margin-top: 0;
 }
 
+.chat-panel .btn:not(:first-child) {	
+  margin-left: 1em;	
+}
+
 .chat-wrapper {
   background-color: rgb(230, 231, 231);
   border: 2px black solid;
